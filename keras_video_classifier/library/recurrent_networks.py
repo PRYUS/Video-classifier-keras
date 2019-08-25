@@ -18,7 +18,7 @@ from keras_video_classifier.library.utility.frame_extractors.resnet_feature_extr
     scan_and_extract_resnet_features
 
 BATCH_SIZE = 1
-NUM_EPOCHS = 50
+NUM_EPOCHS = 100
 VERBOSE = 1 # Progress bar mode
 HIDDEN_UNITS = 256
 #MAX_ALLOWED_FRAMES = 200
