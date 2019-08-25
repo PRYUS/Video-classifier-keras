@@ -10,13 +10,13 @@ def main():
 
     from keras_video_classifier.library.utility.plot_utils import plot_and_save_history
     from keras_video_classifier.library.recurrent_networks import VGG16LSTMVideoClassifier
-    #from keras_video_classifier.library.utility.ucf.UCF101_loader import load_ucf
-    from keras_video_classifier.library.utility.crime.UCF_Crime_loader import load_ucf
+    from keras_video_classifier.library.utility.ucf.UCF101_loader import load_ucf
+    #from keras_video_classifier.library.utility.crime.UCF_Crime_loader import load_ucf
     
     data_set_name = 'UCF-Anomaly-Detection-Dataset'
-    input_dir_path = os.path.join(os.path.dirname(__file__), 'very_large_data')
-    output_dir_path = os.path.join(os.path.dirname(__file__), 'models', data_set_name)
-    report_dir_path = os.path.join(os.path.dirname(__file__), 'reports', data_set_name)
+    input_dir_path = os.path.join(os.path.dirname(__file__), '/content/drive/My Drive')
+    output_dir_path = os.path.join(os.path.dirname(__file__), '/content/drive/My Drive/models', data_set_name)
+    report_dir_path = os.path.join(os.path.dirname(__file__), '/content/drive/My Drive/reports', data_set_name)
 
     np.random.seed(42)
 
