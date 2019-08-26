@@ -17,7 +17,7 @@ from keras_video_classifier.library.utility.frame_extractors.vgg16_feature_extra
 from keras_video_classifier.library.utility.frame_extractors.resnet_feature_extractor import extract_resnet_features_live, \
     scan_and_extract_resnet_features
 
-BATCH_SIZE = 64
+BATCH_SIZE = 32
 NUM_EPOCHS = 50
 VERBOSE = 1 # Progress bar mode
 HIDDEN_UNITS = 512
