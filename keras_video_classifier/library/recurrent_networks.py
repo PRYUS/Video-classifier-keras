@@ -66,6 +66,13 @@ class VGG16BidirectionalLSTMVideoClassifier(object):
         model.add(Activation('softmax'))
 
         model.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
+        
+        #checkpoints
+        data_set_name = 'UCF-Anomaly-Detection-Dataset'
+        model_dir_path = os.path.join(os.path.dirname(__file__), '/content/drive/My Drive/models', data_set_name)
+        filepath=model_dir_path + '/' + "weights-improvement-{epoch:02d}-{val_acc:.2f}.hdf5"
+        checkpoint = ModelCheckpoint(filepath, monitor='val_acc', verbose=1, save_best_only=True, mode='max')
+        callbacks_list = [checkpoint]
 
         return model
 
