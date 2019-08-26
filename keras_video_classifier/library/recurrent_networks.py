@@ -18,7 +18,7 @@ from keras_video_classifier.library.utility.frame_extractors.resnet_feature_extr
     scan_and_extract_resnet_features
 
 BATCH_SIZE = 1
-NUM_EPOCHS = 100
+NUM_EPOCHS = 200
 VERBOSE = 1 # Progress bar mode
 HIDDEN_UNITS = 256
 #MAX_ALLOWED_FRAMES = 200
@@ -297,6 +297,7 @@ class VGG16LSTMVideoClassifier(object):
             return model_dir_path + '/' + VGG16LSTMVideoClassifier.model_name + '-weights.h5'
         else:
             return model_dir_path + '/' + VGG16LSTMVideoClassifier.model_name + '-hi-dim-weights.h5'
+      
 
     @staticmethod
     def get_architecture_file_path(model_dir_path, vgg16_include_top=None):
@@ -344,6 +345,7 @@ class VGG16LSTMVideoClassifier(object):
 
         self.model = self.create_model()
         self.model.load_weights(weight_file_path)
+        print("Loading weights from" + weight_file_path)
 
         vgg16_model = VGG16(include_top=self.vgg16_include_top, weights='imagenet')
         vgg16_model.compile(optimizer=SGD(), loss='categorical_crossentropy', metrics=['accuracy'])
