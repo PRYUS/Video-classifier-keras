@@ -327,7 +327,8 @@ class VGG16LSTMVideoClassifier(object):
         #sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
         #model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
         #rmsprop=RMSprop(lr=0.001, rho=0.9, epsilon=None, decay=0.0)
-        model.compile(loss='categorical_crossentropy', optimizer=Adam, metrics=['accuracy'])      
+        adam=Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
+        model.compile(loss='categorical_crossentropy', optimizer=adam, metrics=['accuracy'])      
         for layer in model.layers:
             print("Input shape:" , layer.input_shape)
         model.summary()
