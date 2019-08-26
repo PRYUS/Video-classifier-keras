@@ -8,7 +8,7 @@ from keras import backend as K
 from keras.utils import np_utils
 from sklearn.model_selection import train_test_split
 from keras.callbacks import ModelCheckpoint
-from keras.optimizers import SGD,RMSprop
+from keras.optimizers import SGD,RMSprop,Adam
 import os
 import numpy as np
 
@@ -17,7 +17,7 @@ from keras_video_classifier.library.utility.frame_extractors.vgg16_feature_extra
 from keras_video_classifier.library.utility.frame_extractors.resnet_feature_extractor import extract_resnet_features_live, \
     scan_and_extract_resnet_features
 
-BATCH_SIZE = 32
+BATCH_SIZE = 64
 NUM_EPOCHS = 50
 VERBOSE = 1 # Progress bar mode
 HIDDEN_UNITS = 512
@@ -326,8 +326,8 @@ class VGG16LSTMVideoClassifier(object):
         model.add(Activation('softmax'))
         #sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
         #model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
-        rmsprop=RMSprop(lr=0.001, rho=0.9, epsilon=None, decay=0.0)
-        model.compile(loss='categorical_crossentropy', optimizer=rmsprop, metrics=['accuracy'])      
+        #rmsprop=RMSprop(lr=0.001, rho=0.9, epsilon=None, decay=0.0)
+        model.compile(loss='categorical_crossentropy', optimizer=Adam, metrics=['accuracy'])      
         for layer in model.layers:
             print("Input shape:" , layer.input_shape)
         model.summary()
