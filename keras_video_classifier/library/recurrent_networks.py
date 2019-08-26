@@ -311,7 +311,7 @@ class VGG16LSTMVideoClassifier(object):
     def create_model(self):
         model = Sequential()
         model.add(
-            LSTM(units=HIDDEN_UNITS, input_shape=(None, self.num_input_tokens), return_sequences=False, dropout=0.5))
+            LSTM(units=HIDDEN_UNITS, input_shape=(None, self.num_input_tokens), return_sequences=True, dropout=0.5))
         
         model.add(
             LSTM(units=HIDDEN_UNITS, input_shape=(None, self.num_input_tokens), return_sequences=False, dropout=0.5))
