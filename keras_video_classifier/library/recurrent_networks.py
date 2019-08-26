@@ -314,7 +314,7 @@ class VGG16LSTMVideoClassifier(object):
             LSTM(units=HIDDEN_UNITS, input_shape=(None, self.num_input_tokens), return_sequences=False, dropout=0.5))
         
         model.add(
-            LSTM(units=HIDDEN_UNITS, input_shape=(None, self.num_input_tokens), return_sequences=True, dropout=0.5))
+            LSTM(units=HIDDEN_UNITS, input_shape=(None, self.num_input_tokens), return_sequences=False, dropout=0.5))
         #model.add(
         #    LSTM(units=HIDDEN_UNITS, input_shape=(None, HIDDEN_UNITS), return_sequences=True, dropout=0.4))
         #model.add(
