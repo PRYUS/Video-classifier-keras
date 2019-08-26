@@ -18,7 +18,7 @@ from keras_video_classifier.library.utility.frame_extractors.resnet_feature_extr
     scan_and_extract_resnet_features
 
 BATCH_SIZE = 1
-NUM_EPOCHS = 200
+NUM_EPOCHS = 100
 VERBOSE = 1 # Progress bar mode
 HIDDEN_UNITS = 256
 #MAX_ALLOWED_FRAMES = 200
@@ -313,8 +313,8 @@ class VGG16LSTMVideoClassifier(object):
         model.add(
             LSTM(units=HIDDEN_UNITS, input_shape=(None, self.num_input_tokens), return_sequences=False, dropout=0.5))
         
-        #model.add(
-        #    LSTM(units=HIDDEN_UNITS, input_shape=(None, self.num_input_tokens), return_sequences=True, dropout=0.5))
+        model.add(
+            LSTM(units=HIDDEN_UNITS, input_shape=(None, self.num_input_tokens), return_sequences=True, dropout=0.5))
         #model.add(
         #    LSTM(units=HIDDEN_UNITS, input_shape=(None, HIDDEN_UNITS), return_sequences=True, dropout=0.4))
         #model.add(
