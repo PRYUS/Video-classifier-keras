@@ -9,7 +9,7 @@ def main():
     sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
     from keras_video_classifier.library.utility.plot_utils import plot_and_save_history
-    from keras_video_classifier.library.recurrent_networks import VGG16LSTMVideoClassifier
+    from keras_video_classifier.library.recurrent_networks import ResnetLSTMVideoClassifier
     from keras_video_classifier.library.utility.ucf.UCF101_loader import load_ucf
     #from keras_video_classifier.library.utility.crime.UCF_Crime_loader import load_ucf
     
@@ -25,11 +25,12 @@ def main():
 
     classifier = ResnetLSTMVideoClassifier()
 
-    history = classifier.fit(data_dir_path=input_dir_path, model_dir_path=output_dir_path, vgg16_include_top=False, data_set_name=data_set_name, test_size=0.1)
+    history = classifier.fit(data_dir_path=input_dir_path, model_dir_path=output_dir_path, resnet_include_top=False, data_set_name=data_set_name, test_size=0.1)
 
-    plot_and_save_history(history, VGG16LSTMVideoClassifier.model_name,
-                          report_dir_path + '/' + VGG16LSTMVideoClassifier.model_name + '-hi-dim-history.png')
-
+    plot_and_save_history(history, ResnetLSTMVideoClassifier.model_name,
+                          report_dir_path + '/' + ResnetLSTMVideoClassifier.model_name + '-hi-dim-history.png')
+   
+    plot_history_2win(history, ResnetLSTMVideoClassifier.model_name,report_dir_path + '/' + ResnetLSTMVideoClassifier.model_name + '-hi-dim-history2win.png')
 
 if __name__ == '__main__':
     main()
