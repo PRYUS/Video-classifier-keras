@@ -24,7 +24,7 @@ HIDDEN_UNITS = 512
 #MAX_ALLOWED_FRAMES = 200
 #EMBEDDING_SIZE = 100
 
-K.set_image_dim_ordering('tf')
+K.set_image_data_format('channels_last')
 
 
 def generate_batch(x_samples, y_samples):
