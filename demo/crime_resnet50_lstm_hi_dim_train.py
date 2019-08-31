@@ -5,7 +5,7 @@ import sys
 
 
 def main():
-    K.set_image_dim_ordering('th')
+    K.set_image_data_format('channels_last')
     sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
     from keras_video_classifier.library.utility.plot_utils import plot_and_save_history
